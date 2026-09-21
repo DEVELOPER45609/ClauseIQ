@@ -42,6 +42,6 @@ def extract_clause(clause_text:str, llm=None) -> ClauseExtractionRequest:
         try:
             return _parser.parse(raw_text)
         except Exception as e:
-            last_error = str(e)
+            last_exception = str(e)
 
-    raise ValueError(f"Clause extraction failed after {MAX_RETRIES + 1} attempts: {last_error}")
+    raise ValueError(f"Clause extraction failed after {MAX_RETRIES + 1} attempts: {last_exception}")

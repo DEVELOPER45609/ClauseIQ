@@ -15,7 +15,7 @@ class ClauseType(str, Enum):
     
 class ClauseExtractionRequest(BaseModel):
     clause_type: ClauseType | None = None
-    plan_summary:str
+    plain_summary: str
 
 class Clause(BaseModel):
     clause_id: str
