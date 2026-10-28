@@ -23,7 +23,7 @@ def get_qdrant_client() -> QdrantClient:
 
 def bootstrap_collection():
     """App startup pe ek baar chalega — collection + payload indexes banata hai agar exist nahi karte."""
-    client = get_qdrant_client
+    client = get_qdrant_client()
     existing = [c.name for c in client.get_collections().collections]
     
     if settings.QDRANT_COLLECTION_NAME not in existing:

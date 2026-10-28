@@ -46,7 +46,7 @@ def segment_contract(text: str) -> list[RawClause]:
     lines= text.splitlines()
     clauses: list[RawClause] = []
     current_section = "preamble"
-    case_heading = str | None = None
+    case_heading: str | None = None
     current_text_lines: list[str] = []
     
     def flush():
@@ -89,6 +89,9 @@ def chunk_oversized_clauses(clauses: list[RawClause], max_chunk_size: int) -> li
                     text=chunk
                 ))
     return new_clauses          
+
+def chunk_contract(text: str, max_clause_size: int) -> list[RawClause]:
+    return chunk_oversized_clauses(segment_contract(text), max_clause_size)
            
        
     

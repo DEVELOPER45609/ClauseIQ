@@ -6,7 +6,7 @@ class ContractRead(BaseModel):
     doc_id: str
     file_name: str
     status: str
-    clause_count: str
+    clause_count: int
     created_at: datetime
     
     class Config:

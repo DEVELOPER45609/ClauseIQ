@@ -3,12 +3,13 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.core.database import create_db_and_tables
-from app.routers import auth
-
+from app.routers import auth, contracts
+from app.rag.vectorstore import bootstrap_collection
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     create_db_and_tables()
+    bootstrap_collection()
     yield
 
 
@@ -20,7 +21,7 @@ app = FastAPI(
 )
 
 app.include_router(auth.router)
-
+app.include_router(contracts.router)
 
 @app.get("/")
 def health_check():
