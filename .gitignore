@@ -1,5 +1,71 @@
+# ── Environment & Secrets ────────────────────────────────────────
 .env
+.env.*
+
+# ── Virtual Environments ─────────────────────────────────────────
 .venv/
 venv/
+
+# ── Python Bytecode & Compiled Files ─────────────────────────────
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+
+# ── Database Files ───────────────────────────────────────────────
+*.db
+*.db-shm
+*.db-wal
+clauseiq.db
+
+# ── Runtime / Generated Data ─────────────────────────────────────
+qdrant_data/
+uploads/
+
+# ── Test & Coverage ───────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Build & Distribution ─────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+
+# ── Type Checker & Linter Caches ─────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+
+# ── OS Files ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+uploads/
+
+# ── Test & Coverage ───────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Build & Distribution ─────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+
+# ── Type Checker & Linter Caches ─────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+
+# ── OS Files ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

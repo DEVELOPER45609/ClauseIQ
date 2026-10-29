@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import AliasChoices, BaseModel, Field
 
 class ClauseType(str, Enum):
     PAYMENT = "payment"
@@ -28,6 +28,24 @@ class Clause(BaseModel):
     doc_id:str
     clause_type: ClauseType
     text: str
-    plan_summary: str
+    plain_summary: str
     risk_level: Literal["low", "medium", "high"] | None = None
-    risk_reason: list[str] | None = None
+    risk_reasons: list[str] | None = None
+
+class ClauseSummary(BaseModel):
+    clause_id: str
+    doc_id:str
+    section: str
+    clause_type: ClauseType
+    plain_summary: str = Field(
+        validation_alias=AliasChoices("plain_summary", "plain_summary")
+    )
+    risk_level: Literal["low", "medium", "high"] | None = None
+    risk_reasons: list[str] | None = None
+
+class ClauseMap(BaseModel):
+    contract_id: int
+    total: int
+    by_type: dict[str, int]
+    by_risk: dict[str, int]
+    clauses: list[ClauseSummary]
